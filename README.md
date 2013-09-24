@@ -4,12 +4,12 @@ goCode 2 - Backbone notes demo app
 This is a simple demo app that demonstrates the use of Backbone.js.
 It uses the following libraries:
 
-- sqlite3
-- sequel
-- sinatra
-- sass & compass
-- backbone.js
-- zurb-foundation
+- [sqlite3](http://rubygems.org/gems/sqlite3)
+- [sequel](http://rubygems.org/gems/sequel)
+- [sinatra](http://rubygems.org/gems/sinatra)
+- [sass](http://rubygems.org/gems/sass) & [compass](http://rubygems.org/gems/compass)
+- [backbone.js](http://backbonejs.org/)
+- [zurb-foundation](http://rubygems.org/gems/zurb-foundation)
 
 Installation
 ============
@@ -25,13 +25,12 @@ To start the server simply run:
 ```
 bundle exec rackup -p 4567
 ```
-
-Then visit http://localhost:4567/
+Then visit [http://localhost:4567/](http://localhost:4567/)
 
 Development
 ===========
 
-To compile scss to css dynamically run compass from project root:
+To compile scss to css dynamically run compass from the project root:
 ```
 compass watch public
 ```
