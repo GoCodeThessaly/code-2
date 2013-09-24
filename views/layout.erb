@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Backbone notes app</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&subset=latin,greek' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/stylesheets/app.css">
+
+
+  <script src="/javascripts/vendor/custom.modernizr.js"></script>
+
+</head>
+<body>
+  <nav class="top-bar">
+    <ul class="title-area">
+      <li class="name"><h1><a href='/'>Backbone Notes!</a></li>
+    </ul>
+  </nav>
+
+  <%= yield %>
+
+  <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? '/javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+
+  <script src="/javascripts/foundation/foundation.js"></script>
+	<script src="/javascripts/foundation/foundation.alerts.js"></script>
+	<script src="/javascripts/foundation/foundation.magellan.js"></script>
+	<script src="/javascripts/foundation/foundation.clearing.js"></script>
+	<script src="/javascripts/foundation/foundation.interchange.js"></script>
+	<script src="/javascripts/foundation/foundation.reveal.js"></script>
+	<script src="/javascripts/foundation/foundation.orbit.js"></script>
+	<script src="/javascripts/foundation/foundation.tooltips.js"></script>
+	<script src="/javascripts/foundation/foundation.topbar.js"></script>
+	<script src="/javascripts/foundation/foundation.joyride.js"></script>
+	<script src="/javascripts/foundation/foundation.cookie.js"></script>
+	<script src="/javascripts/foundation/foundation.section.js"></script>
+	<script src="/javascripts/foundation/foundation.placeholder.js"></script>
+	<script src="/javascripts/foundation/foundation.forms.js"></script>
+	<script src="/javascripts/foundation/foundation.dropdown.js"></script>
+
+  <script src="/javascripts/vendor/underscore.js"></script>
+  <script src="/javascripts/vendor/backbone.js"></script>
+  <script src="/javascripts/vendor/mustache.js"></script>
+
+  <script src="/javascripts/app.js"></script>
+
+  <script type="text/template" id="noteTpl">
+    <td>{{id}}</td>
+    <td>{{title}}</td>
+    <td>{{text}}</td>
+    <td>
+      <a href='#' class='edit'>Edit</a>
+      <a href='#' class='delete'>Delete</a>
+    </td>
+  </script>
+
+  <div id='newNoteModal' class='reveal-modal small'>
+    <div class='row'>
+      <div class='columns small-12'>
+        <h3>Add a new note</h3>
+      </div>
+    </div>
+    <form id='newNoteForm'>
+      <div class='row'>
+        <div class='columns small-12'>
+          <label for='title'>Title</label>
+          <input type='text' name='title' id='title' placeholder='My new note'>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='columns small-12'>
+          <label for='text'>Body</label>
+          <textarea name='text' id='text' placeholder='Write the note...'></textarea>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='columns small-12'>
+          <label for='color'>Color</label>
+          <input type='text' name='color' id='color' placeholder='transparent'>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='columns small-6'>
+          <button type='button' class='cancel secondary'>Cancel</button>
+        </div>
+        <div class='columns small-6 text-right'>
+          <button type='submit'>Add note</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div id='editNoteModal' class='reveal-modal small'>
+  </div>
+
+  <script type='text/template' id='editNoteTpl'>
+    <div class='row'>
+      <div class='columns small-12'>
+        <h3>Edit note #{{id}}</h3>
+      </div>
+    </div>
+    <form id='editNoteForm'>
+      <div class='row'>
+        <div class='columns small-12'>
+          <label for='title'>Title</label>
+          <input type='text' name='title' id='title' placeholder='My new note' value='{{title}}'>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='columns small-12'>
+          <label for='text'>Body</label>
+          <textarea name='text' id='text' placeholder='Write the note...'>{{text}}</textarea>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='columns small-12'>
+          <label for='color'>Color</label>
+          <input type='text' name='color' id='color' placeholder='transparent' value='{{color}}'>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='columns small-6'>
+          <button type='button' class='cancel secondary'>Cancel</button>
+        </div>
+        <div class='columns small-6 text-right'>
+          <button type='submit'>Update note</button>
+        </div>
+      </div>
+    </form>
+  </script>
+
+  <script type="text/template" id="errorTpl">
+    <div class='row errors'>
+      <div class='columns small-12'>
+        <ul class='alert-box alert no-bullet'>
+          {{#errors}}
+          <li>{{.}}</li>
+          {{/errors}}
+        </ul>
+      </div>
+    </div>
+  </script>
+</body>
+</html>
